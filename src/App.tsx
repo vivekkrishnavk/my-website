@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { ThemeProvider } from 'styled-components/macro'
 
-function App() {
+import { darkTheme, lightTheme } from './styles/theme'
+import { GlobalStyles } from './styles/globalStyles'
+import { Routes } from 'routes/routes'
+
+function App(): JSX.Element {
+  const [mode] = useState('light')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={mode === 'light' ? lightTheme : darkTheme}>
+      <GlobalStyles />
+      <Routes />
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App

@@ -6,21 +6,36 @@
       "dom.iterable",
       "esnext"
     ],
+    "downlevelIteration": true,
     "allowJs": true,
-    "skipLibCheck": true,
+    "skipLibCheck": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": false,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src"
+    "src/**/*.d.ts",
+    "src/*.ts",
+    "src/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "typings/**/*.ts",
+    "src/**/*.js",
+    "server/*.js",
+    "server.js",
+    "config-overrides.js",
+    ".commitlintrc.js"
+  ],
+  "exclude": [
+    "src/assets/**"
   ]
 }
