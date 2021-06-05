@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 
 import {
   Wrapper,
@@ -41,9 +40,9 @@ export const Sidebar = (): JSX.Element => {
   return (
     <Wrapper>
       <StyledHeader>
-        <NavLink to={'/'}>
+        <a>
           <StyledH1>Vivek Krishna</StyledH1>
-        </NavLink>
+        </a>
         <Separator />
         <StyledP>Java Developer</StyledP>
         <StyledP>React Developer</StyledP>
@@ -53,7 +52,7 @@ export const Sidebar = (): JSX.Element => {
         <StyledUL>
           {sidebarOptions.map((option) => (
             <li>
-              <StyledLink key={option.key} to={option.path}>
+              <StyledLink key={option.key}>
                 {option.label}
               </StyledLink>
             </li>

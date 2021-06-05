@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro'
-import { NavLink } from 'react-router-dom'
 
 import { pxToRem } from 'helpers'
 
@@ -55,7 +54,7 @@ export const StyledUL = styled.ul`
   }
 `
 
-export const StyledLink = styled(NavLink)`
+export const StyledLink = styled.a`
   padding-bottom: ${pxToRem(8)};
   &:hover {
     border-bottom: ${pxToRem(2)} solid ${({ theme }): string => theme.paletteDefault};
