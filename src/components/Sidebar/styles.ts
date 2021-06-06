@@ -10,9 +10,13 @@ export const Wrapper = styled.div`
   left: 0;
   position: fixed;
   width: ${pxToRem(280)};
-  z-index: 200;
+  z-index: 1;
   background: ${({ theme }): string => theme.navBackground};
   padding: ${pxToRem(32)};
+
+  @media ${({ theme }): string => theme.device.tablet} {
+    display: none;
+  }
 `
 
 export const StyledHeader = styled.header`
@@ -40,6 +44,9 @@ export const StyledNav = styled.nav`
   flex-direction: column;
   flex: 0 0 50%;
   justify-content: center;
+  @media ${({ theme }): string => theme.device.tablet} {
+    flex: 0 0 100%;
+  }
 `
 
 export const StyledUL = styled.ul`
@@ -51,11 +58,23 @@ export const StyledUL = styled.ul`
   font-size: ${pxToRem(16)};
   & > li {
     height: ${pxToRem(48)};
+    @media ${({ theme }): string => theme.device.tablet} {
+      text-align: center;
+      height: ${pxToRem(96)};
+    }
   }
 `
 
-export const StyledLink = styled.a`
+export const StyledLink = styled.a<{ isHomePageVisible?: boolean }>`
   padding-bottom: ${pxToRem(8)};
+  ${({ isHomePageVisible, theme }): string => {
+    return isHomePageVisible
+      ? `
+      border-bottom: ${pxToRem(2)} solid ${theme.paletteDefault};
+      color: ${theme.paletteDefault};
+    `
+      : ''
+  }}
   &:hover {
     border-bottom: ${pxToRem(2)} solid ${({ theme }): string => theme.paletteDefault};
     color: ${({ theme }): string => theme.paletteDefault};

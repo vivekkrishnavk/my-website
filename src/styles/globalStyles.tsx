@@ -99,7 +99,6 @@ export const GlobalStyles = createGlobalStyle<{ theme: any }>`
 
     #root {
         display: flex;
-        overflow: hidden;
         min-height: 100vh;
     }
 `

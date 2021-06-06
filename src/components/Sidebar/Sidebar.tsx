@@ -1,42 +1,10 @@
 import React from 'react'
 
-import {
-  Wrapper,
-  StyledHeader,
-  StyledNav,
-  StyledFooter,
-  StyledH1,
-  StyledP,
-  StyledUL,
-  StyledLink,
-} from './styles'
+import { Wrapper, StyledHeader, StyledFooter, StyledH1, StyledP } from './styles'
 import { Separator } from 'components/Separator/Separator'
+import { SidebarNavLinks } from './SidebarNavLinks'
 
-const sidebarOptions = [
-  {
-    key: 1,
-    label: 'Home',
-    path: '/',
-  },
-  {
-    key: 2,
-    label: 'My Work',
-    path: '/my-work',
-  },
-  {
-    key: 3,
-    label: 'Blogs',
-    path: '/blogs',
-  },
-  {
-    key: 4,
-    label: 'Services',
-    path: '/services',
-  },
-]
-
-export const Sidebar = (): JSX.Element => {
-  console.log(sidebarOptions)
+export const Sidebar = ({ isHomePageVisible }: { isHomePageVisible: boolean }): JSX.Element => {
   return (
     <Wrapper>
       <StyledHeader>
@@ -48,17 +16,7 @@ export const Sidebar = (): JSX.Element => {
         <StyledP>React Developer</StyledP>
         <StyledP>Full Stack Developer</StyledP>
       </StyledHeader>
-      <StyledNav>
-        <StyledUL>
-          {sidebarOptions.map((option) => (
-            <li>
-              <StyledLink key={option.key}>
-                {option.label}
-              </StyledLink>
-            </li>
-          ))}
-        </StyledUL>
-      </StyledNav>
+      <SidebarNavLinks />
       <StyledFooter>
         <p>
           {`Like what you see? Send me an email and tell me about it `}
