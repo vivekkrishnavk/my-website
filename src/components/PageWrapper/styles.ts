@@ -20,6 +20,7 @@ export const StyledMain = styled.main`
 `
 
 export const MobileTopNav = styled.div`
+  display: none;
   @media ${({ theme }): string => theme.device.tablet} {
     display: flex;
     background: ${({ theme }): string => theme.navBackground};
