@@ -10,7 +10,7 @@ import Sun from 'assets/sun.svg'
 import Moon from 'assets/moon.svg'
 
 const Toggler = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 200;
   top: 0;
   right: 0;
