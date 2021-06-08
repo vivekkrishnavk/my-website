@@ -26,7 +26,6 @@ export const StyledHeader = styled.header`
 `
 
 export const StyledH1 = styled.h1`
-  font-family: 'Roboto';
   text-transform: uppercase;
   font-size: ${({ theme }): string => pxToRem(theme.fontSizes.large)};
   color: ${({ theme }): string => theme.paletteDefault};

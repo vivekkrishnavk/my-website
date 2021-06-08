@@ -4,7 +4,7 @@ import { Wrapper, StyledHeader, StyledFooter, StyledH1, StyledP } from './styles
 import { Separator } from 'components/Separator/Separator'
 import { SidebarNavLinks } from './SidebarNavLinks'
 
-export const Sidebar = ({ isHomePageVisible }: { isHomePageVisible: boolean }): JSX.Element => {
+export const Sidebar = (): JSX.Element => {
   return (
     <Wrapper>
       <StyledHeader>

@@ -4,13 +4,7 @@ import { Sidebar } from 'components/Sidebar/Sidebar'
 import { SidebarNavLinks } from 'components/Sidebar/SidebarNavLinks'
 import { Wrapper, StyledMain, MobileTopNav, MobileNavUL, MiddleNav, MobileNavLinks } from './styles'
 
-export const PageWrapper = ({
-  children,
-  isHomePageVisible,
-}: {
-  children: JSX.Element
-  isHomePageVisible: boolean
-}): JSX.Element => {
+export const PageWrapper = ({ children }: { children: JSX.Element }): JSX.Element => {
   const [openMobileNav, setOpenMobileNav] = useState(false)
   return (
     <Wrapper>
@@ -29,7 +23,7 @@ export const PageWrapper = ({
         </MobileNavLinks>
       ) : (
         <>
-          <Sidebar isHomePageVisible={isHomePageVisible} />
+          <Sidebar />
           <StyledMain>{children}</StyledMain>
         </>
       )}

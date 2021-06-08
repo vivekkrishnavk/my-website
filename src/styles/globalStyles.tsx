@@ -5,9 +5,9 @@ import RubikMediumTTF from 'assets/fonts/RubikMedium.ttf'
 import RubikSemiBoldTTF from 'assets/fonts/RubikSemiBold.ttf'
 import RubikRegulatWOFF from 'assets/fonts/RubikRegular.woff'
 
-import RobotoRegularTTF from 'assets/fonts/RobotoRegular.ttf'
-import RobotoMediumTTF from 'assets/fonts/RobotoMedium.ttf'
-import RobotoBoldTTF from 'assets/fonts/RobotoBold.ttf'
+import RobotoRegularTTF from 'assets/fonts/RobotoMono-Regular.ttf'
+import RobotoMediumTTF from 'assets/fonts/RobotoMono-Medium.ttf'
+import RobotoBoldTTF from 'assets/fonts/RobotoMono-Bold.ttf'
 
 import { pxToRem } from 'helpers'
 
@@ -52,7 +52,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: any }>`
         font-family: 'Roboto';
         src: local('Roboto'), url(${RobotoBoldTTF});
         font-style: normal;
-        font-weight: 700;
+        font-weight: 600;
     }
 
     *,

@@ -39,24 +39,3 @@ export const StyledP = styled.p`
   margin-bottom: ${pxToRem(32)};
   line-height: 1.6em;
 `
-
-export const ContactWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-`
-
-export const StyledLink = styled.a`
-  cursor: pointer;
-  font-weight: 500;
-  letter-spacing: ${pxToRem(1.28)};
-  text-transform: uppercase;
-  color: ${({ theme }): string => theme.paletteDefault};
-  margin-right: ${pxToRem(24)};
-  &:hover {
-    padding-bottom: ${pxToRem(8)};
-    border-bottom: ${pxToRem(2)} solid ${({ theme }): string => theme.paletteDefault};
-  }
-  @media ${({ theme }): string => theme.device.tablet} {
-    font-size: ${pxToRem(14)};
-  }
-`
