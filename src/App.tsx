@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useRef, useEffect } from 'react'
 import styled, { ThemeProvider } from 'styled-components/macro'
 
@@ -18,38 +19,36 @@ const Toggler = styled.div`
   cursor: pointer;
 `
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function useOnViewport(ref: any): boolean {
-  console.log('ref: ', ref)
-  const [isIntersecting, setIsIntersecting] = useState(false)
-  const observer = new IntersectionObserver(([entry]) => setIsIntersecting(entry.isIntersecting))
+function useOnScreen(ref: any): boolean {
+  const [isOnScreen, setIsOnScreen] = useState(false)
+  const observer = new IntersectionObserver(([entry]) => setIsOnScreen(entry.isIntersecting), {
+    threshold: 0.1,
+  })
   useEffect(() => {
-    if (ref.current) {
-      observer.observe(ref.current)
-      return (): void => observer.disconnect()
-    }
+    observer.observe(ref.current)
+    // Remove the observer as soon as the component is unmounted
+    return (): void => observer.disconnect()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  return isIntersecting
-}
 
-function getActivePage(isHomePageVisible: boolean, isMyWorkPageVisible: boolean): string {
-  if (isHomePageVisible) {
-    return 'home'
-  } else if (isMyWorkPageVisible) {
-    return 'mywork'
-  }
-  return 'home'
+  return isOnScreen
 }
 
 function App(): JSX.Element {
   const [mode, setMode] = useState('dark')
-  const homePageRef = useRef(null)
-  const myWorkRef = useRef(null)
-  const isHomePageVisible = useOnViewport(homePageRef)
-  const isMyWorkPageVisible = useOnViewport(myWorkRef)
-  console.log('isHomePageVisible: ', isHomePageVisible, isMyWorkPageVisible)
-  const activePage = getActivePage(isHomePageVisible, isMyWorkPageVisible)
+  const homePageRef = useRef<null | HTMLElement>(null)
+  const myWorkRef = useRef<null | HTMLElement>(null)
+  const isHomeInView = useOnScreen(homePageRef)
+  const isMyWorkInView = useOnScreen(myWorkRef)
+
+  const getActiveTab = (): string => {
+    if (isHomeInView) {
+      return 'home'
+    } else if (isMyWorkInView) {
+      return 'mywork'
+    }
+    return 'home'
+  }
   return (
     <ThemeProvider theme={mode === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
@@ -70,10 +69,28 @@ function App(): JSX.Element {
           />
         )}
       </Toggler>
-      <PageWrapper activePage={activePage}>
+      <PageWrapper
+        activePage={getActiveTab()}
+        onSidebarClick={(selectedPage: string): void => {
+          console.log('active page: ', selectedPage, homePageRef)
+          if (selectedPage === 'home' && homePageRef) {
+            homePageRef?.current?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'end',
+              inline: 'end',
+            })
+          } else if (selectedPage === 'mywork' && myWorkRef) {
+            myWorkRef?.current?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+              inline: 'start',
+            })
+          }
+        }}
+      >
         <>
-          <Home ref={homePageRef} />
-          <MyWork ref={myWorkRef} />
+          <Home ref={homePageRef} className={'home'} />
+          <MyWork ref={myWorkRef} className={'mywork'} />
         </>
       </PageWrapper>
     </ThemeProvider>

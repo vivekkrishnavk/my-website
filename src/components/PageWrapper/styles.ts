@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 export const StyledMain = styled.main`
   min-height: 100vh;
   margin-left: ${pxToRem(280)};
-  padding: ${pxToRem(120)} ${pxToRem(48)} 0;
+  padding: 0 ${pxToRem(48)};
   @media ${({ theme }): string => theme.device.tablet} {
     margin-left: 0;
   }

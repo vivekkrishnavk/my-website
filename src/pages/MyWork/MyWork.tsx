@@ -23,7 +23,7 @@ import doecards from 'assets/img/doecards.webp'
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const MyWork = React.forwardRef((props: any, ref: any): JSX.Element => {
   return (
-    <HomePageSection ref={ref}>
+    <HomePageSection ref={ref} className={props.className}>
       <StyledH1>
         <Greeting>My Work</Greeting>
         <JobDescription>Products that I have built</JobDescription>

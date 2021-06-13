@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react'
 
 import { Sidebar } from 'components/Sidebar/Sidebar'
 import { SidebarNavLinks } from 'components/Sidebar/SidebarNavLinks'
 import { Wrapper, StyledMain, MobileTopNav, MobileNavUL, MiddleNav, MobileNavLinks } from './styles'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const PageWrapper = (props: { children: any; activePage: string }): JSX.Element => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const PageWrapper = (props: any): JSX.Element => {
   const [openMobileNav, setOpenMobileNav] = useState(false)
   return (
     <Wrapper>
@@ -20,11 +21,17 @@ export const PageWrapper = (props: { children: any; activePage: string }): JSX.E
       </MobileTopNav>
       {openMobileNav ? (
         <MobileNavLinks>
-          <SidebarNavLinks activePage={props.activePage} />
+          <SidebarNavLinks
+            onSidebarClick={(selectedPage: string): void => props.onSidebarClick(selectedPage)}
+            activePage={props.activePage}
+          />
         </MobileNavLinks>
       ) : (
         <>
-          <Sidebar activePage={props.activePage} />
+          <Sidebar
+            onSidebarClick={(selectedPage: string): void => props.onSidebarClick(selectedPage)}
+            activePage={props.activePage}
+          />
           <StyledMain>{props.children}</StyledMain>
         </>
       )}

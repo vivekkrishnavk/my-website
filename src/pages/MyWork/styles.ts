@@ -4,7 +4,7 @@ import { pxToRem } from 'helpers'
 
 export const HomePageSection = styled.section`
   box-sizing: border-box;
-  height: 100vh;
+  min-height: 100vh;
   padding: ${pxToRem(48)};
   @media ${({ theme }): string => theme.device.tablet} {
     padding 0;

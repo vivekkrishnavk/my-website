@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react'
 
 import { Wrapper, StyledHeader, StyledFooter, StyledH1, StyledP } from './styles'
 import { Separator } from 'components/Separator/Separator'
 import { SidebarNavLinks } from './SidebarNavLinks'
 
-export const Sidebar = (props: { activePage: string }): JSX.Element => {
+export const Sidebar = (props: any): JSX.Element => {
   return (
     <Wrapper>
       <StyledHeader>
@@ -16,7 +18,10 @@ export const Sidebar = (props: { activePage: string }): JSX.Element => {
         <StyledP>React Developer</StyledP>
         <StyledP>Full Stack Developer</StyledP>
       </StyledHeader>
-      <SidebarNavLinks activePage={props.activePage} />
+      <SidebarNavLinks
+        onSidebarClick={(selectedPage: string): void => props.onSidebarClick(selectedPage)}
+        activePage={props.activePage}
+      />
       <StyledFooter>
         <p>
           {`Like what you see? Send me an email and tell me about it `}

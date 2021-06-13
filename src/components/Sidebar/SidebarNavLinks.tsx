@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 
 import { StyledNav, StyledUL, StyledLink } from './styles'
@@ -29,13 +31,17 @@ const sidebarOptions = [
   },
 ]
 
-export const SidebarNavLinks = (props: { activePage: string }): JSX.Element => {
+export const SidebarNavLinks = (props: any): JSX.Element => {
   return (
     <StyledNav>
       <StyledUL>
         {sidebarOptions.map((option) => (
           <li>
-            <StyledLink isActive={props.activePage === option.name} key={option.key}>
+            <StyledLink
+              isActive={props.activePage === option.name}
+              key={option.name}
+              onClick={(element: any): void => props.onSidebarClick(option.name)}
+            >
               {option.label}
             </StyledLink>
           </li>

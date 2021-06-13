@@ -13,7 +13,7 @@ import {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Home = React.forwardRef((props: any, ref: any): JSX.Element => {
   return (
-    <HomePageSection ref={ref}>
+    <HomePageSection className={props.className} ref={ref}>
       <StyledH1>
         <Greeting>Hi, I'm Vivek Krishna</Greeting>
         <JobDescription>I am a Full Stack Java and React Developer.</JobDescription>
