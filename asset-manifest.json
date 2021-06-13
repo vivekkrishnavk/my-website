@@ -1,24 +1,29 @@
 {
   "files": {
-    "main.js": "/my-website/static/js/main.974d6c7a.chunk.js",
-    "main.js.map": "/my-website/static/js/main.974d6c7a.chunk.js.map",
+    "main.js": "/my-website/static/js/main.d4384d05.chunk.js",
+    "main.js.map": "/my-website/static/js/main.d4384d05.chunk.js.map",
     "runtime-main.js": "/my-website/static/js/runtime-main.5b8c1bb3.js",
     "runtime-main.js.map": "/my-website/static/js/runtime-main.5b8c1bb3.js.map",
     "static/js/2.cd741087.chunk.js": "/my-website/static/js/2.cd741087.chunk.js",
     "static/js/2.cd741087.chunk.js.map": "/my-website/static/js/2.cd741087.chunk.js.map",
     "index.html": "/my-website/index.html",
     "static/js/2.cd741087.chunk.js.LICENSE.txt": "/my-website/static/js/2.cd741087.chunk.js.LICENSE.txt",
-    "static/media/RobotoBold.75371f53.ttf": "/my-website/static/media/RobotoBold.75371f53.ttf",
-    "static/media/RobotoMedium.7429a63c.ttf": "/my-website/static/media/RobotoMedium.7429a63c.ttf",
-    "static/media/RobotoRegular.a8d6ac03.ttf": "/my-website/static/media/RobotoRegular.a8d6ac03.ttf",
+    "static/media/RobotoMono-Bold.1d29748c.ttf": "/my-website/static/media/RobotoMono-Bold.1d29748c.ttf",
+    "static/media/RobotoMono-Medium.e04fa2d8.ttf": "/my-website/static/media/RobotoMono-Medium.e04fa2d8.ttf",
+    "static/media/RobotoMono-Regular.418a8f9f.ttf": "/my-website/static/media/RobotoMono-Regular.418a8f9f.ttf",
     "static/media/RubikMedium.2263cf4b.ttf": "/my-website/static/media/RubikMedium.2263cf4b.ttf",
     "static/media/RubikRegular.581c4834.woff": "/my-website/static/media/RubikRegular.581c4834.woff",
     "static/media/RubikRegular.a4bece5c.ttf": "/my-website/static/media/RubikRegular.a4bece5c.ttf",
-    "static/media/RubikSemiBold.779458cb.ttf": "/my-website/static/media/RubikSemiBold.779458cb.ttf"
+    "static/media/RubikSemiBold.779458cb.ttf": "/my-website/static/media/RubikSemiBold.779458cb.ttf",
+    "static/media/doecards.d486a793.webp": "/my-website/static/media/doecards.d486a793.webp",
+    "static/media/instarem.f4bcfa4f.webp": "/my-website/static/media/instarem.f4bcfa4f.webp",
+    "static/media/monkeycap.bdcc7bdd.webp": "/my-website/static/media/monkeycap.bdcc7bdd.webp",
+    "static/media/moon.fe8ddf47.svg": "/my-website/static/media/moon.fe8ddf47.svg",
+    "static/media/sun.6cefe67a.svg": "/my-website/static/media/sun.6cefe67a.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.5b8c1bb3.js",
     "static/js/2.cd741087.chunk.js",
-    "static/js/main.974d6c7a.chunk.js"
+    "static/js/main.d4384d05.chunk.js"
   ]
 }
