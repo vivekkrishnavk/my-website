@@ -20,9 +20,10 @@ import instarem from 'assets/img/instarem.webp'
 import monkeycap from 'assets/img/monkeycap.webp'
 import doecards from 'assets/img/doecards.webp'
 
-export const MyWork = (): JSX.Element => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const MyWork = React.forwardRef((props: any, ref: any): JSX.Element => {
   return (
-    <HomePageSection>
+    <HomePageSection ref={ref}>
       <StyledH1>
         <Greeting>My Work</Greeting>
         <JobDescription>Products that I have built</JobDescription>
@@ -93,4 +94,4 @@ export const MyWork = (): JSX.Element => {
       </ProductDescriptionDiv>
     </HomePageSection>
   )
-}
+})

@@ -4,7 +4,8 @@ import { Sidebar } from 'components/Sidebar/Sidebar'
 import { SidebarNavLinks } from 'components/Sidebar/SidebarNavLinks'
 import { Wrapper, StyledMain, MobileTopNav, MobileNavUL, MiddleNav, MobileNavLinks } from './styles'
 
-export const PageWrapper = ({ children }: { children: JSX.Element }): JSX.Element => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const PageWrapper = (props: { children: any; activePage: string }): JSX.Element => {
   const [openMobileNav, setOpenMobileNav] = useState(false)
   return (
     <Wrapper>
@@ -19,12 +20,12 @@ export const PageWrapper = ({ children }: { children: JSX.Element }): JSX.Elemen
       </MobileTopNav>
       {openMobileNav ? (
         <MobileNavLinks>
-          <SidebarNavLinks />
+          <SidebarNavLinks activePage={props.activePage} />
         </MobileNavLinks>
       ) : (
         <>
-          <Sidebar />
-          <StyledMain>{children}</StyledMain>
+          <Sidebar activePage={props.activePage} />
+          <StyledMain>{props.children}</StyledMain>
         </>
       )}
     </Wrapper>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import styled, { ThemeProvider } from 'styled-components/macro'
 
 import { darkTheme, lightTheme } from './styles/theme'
@@ -18,8 +18,38 @@ const Toggler = styled.div`
   cursor: pointer;
 `
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function useOnViewport(ref: any): boolean {
+  console.log('ref: ', ref)
+  const [isIntersecting, setIsIntersecting] = useState(false)
+  const observer = new IntersectionObserver(([entry]) => setIsIntersecting(entry.isIntersecting))
+  useEffect(() => {
+    if (ref.current) {
+      observer.observe(ref.current)
+      return (): void => observer.disconnect()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  return isIntersecting
+}
+
+function getActivePage(isHomePageVisible: boolean, isMyWorkPageVisible: boolean): string {
+  if (isHomePageVisible) {
+    return 'home'
+  } else if (isMyWorkPageVisible) {
+    return 'mywork'
+  }
+  return 'home'
+}
+
 function App(): JSX.Element {
   const [mode, setMode] = useState('dark')
+  const homePageRef = useRef(null)
+  const myWorkRef = useRef(null)
+  const isHomePageVisible = useOnViewport(homePageRef)
+  const isMyWorkPageVisible = useOnViewport(myWorkRef)
+  console.log('isHomePageVisible: ', isHomePageVisible, isMyWorkPageVisible)
+  const activePage = getActivePage(isHomePageVisible, isMyWorkPageVisible)
   return (
     <ThemeProvider theme={mode === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
@@ -40,10 +70,10 @@ function App(): JSX.Element {
           />
         )}
       </Toggler>
-      <PageWrapper>
+      <PageWrapper activePage={activePage}>
         <>
-          <Home />
-          <MyWork />
+          <Home ref={homePageRef} />
+          <MyWork ref={myWorkRef} />
         </>
       </PageWrapper>
     </ThemeProvider>

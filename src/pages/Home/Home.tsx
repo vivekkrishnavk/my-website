@@ -11,25 +11,9 @@ import {
 } from './styles'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-// function useOnViewport(ref: any): boolean {
-//   const [isIntersecting, setIsIntersecting] = useState(false)
-//   const observer = new IntersectionObserver(([entry]) => setIsIntersecting(entry.isIntersecting))
-//   useEffect(() => {
-//     observer.observe(ref.current)
-//     return (): void => {
-//       observer.disconnect()
-//     }
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//   }, [])
-//   return isIntersecting
-// }
-
-export const Home = (): JSX.Element => {
-  // const homePageSectionRef = useRef(null)
-  // const isHomePageVisible = useOnViewport(homePageSectionRef)
-  // console.log(isHomePageVisible)
+export const Home = React.forwardRef((props: any, ref: any): JSX.Element => {
   return (
-    <HomePageSection>
+    <HomePageSection ref={ref}>
       <StyledH1>
         <Greeting>Hi, I'm Vivek Krishna</Greeting>
         <JobDescription>I am a Full Stack Java and React Developer.</JobDescription>
@@ -44,4 +28,4 @@ export const Home = (): JSX.Element => {
       </ContactWrapper>
     </HomePageSection>
   )
-}
+})

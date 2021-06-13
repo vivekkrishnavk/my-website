@@ -4,7 +4,7 @@ import { Wrapper, StyledHeader, StyledFooter, StyledH1, StyledP } from './styles
 import { Separator } from 'components/Separator/Separator'
 import { SidebarNavLinks } from './SidebarNavLinks'
 
-export const Sidebar = (): JSX.Element => {
+export const Sidebar = (props: { activePage: string }): JSX.Element => {
   return (
     <Wrapper>
       <StyledHeader>
@@ -16,7 +16,7 @@ export const Sidebar = (): JSX.Element => {
         <StyledP>React Developer</StyledP>
         <StyledP>Full Stack Developer</StyledP>
       </StyledHeader>
-      <SidebarNavLinks />
+      <SidebarNavLinks activePage={props.activePage} />
       <StyledFooter>
         <p>
           {`Like what you see? Send me an email and tell me about it `}

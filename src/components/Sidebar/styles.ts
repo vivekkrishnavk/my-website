@@ -64,10 +64,10 @@ export const StyledUL = styled.ul`
   }
 `
 
-export const StyledLink = styled.a<{ isHomePageVisible?: boolean }>`
+export const StyledLink = styled.a<{ isActive?: boolean }>`
   padding-bottom: ${pxToRem(8)};
-  ${({ isHomePageVisible, theme }): string => {
-    return isHomePageVisible
+  ${({ isActive, theme }): string => {
+    return isActive
       ? `
       border-bottom: ${pxToRem(2)} solid ${theme.paletteDefault};
       color: ${theme.paletteDefault};
