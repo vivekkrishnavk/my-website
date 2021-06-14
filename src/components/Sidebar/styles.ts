@@ -59,8 +59,7 @@ export const StyledUL = styled.ul`
     height: ${pxToRem(48)};
     @media ${({ theme }): string => theme.device.tablet} {
       display: block;
-      height: 3rem;
-      padding: 1rem;
+      padding: ${pxToRem(16)};
       text-align: center;
     }
   }

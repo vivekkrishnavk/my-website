@@ -8,20 +8,11 @@ import { GlobalStyles } from './styles/globalStyles'
 import { PageWrapper } from 'components/PageWrapper/PageWrapper'
 import { Home } from 'pages/Home/Home'
 import { MyWork } from 'pages/MyWork/MyWork'
+import { Blogs } from 'pages/Blogs/Blogs'
 import Sun from 'assets/sun.svg'
 import Moon from 'assets/moon.svg'
 
-const Toggler = styled.div`
-  position: fixed;
-  z-index: 200;
-  top: 0;
-  right: 0;
-  margin: 20px;
-  cursor: pointer;
-  @media ${({ theme }): string => theme.device.tablet} {
-    margin-top: 70px;
-  }
-`
+import { Toggler, StyledFooter, FooterWrapper } from './styles'
 
 function useOnScreen(ref: any): boolean {
   const [isOnScreen, setIsOnScreen] = useState(false)
@@ -42,14 +33,17 @@ function App(): JSX.Element {
   const [mode, setMode] = useState('light')
   const homePageRef = useRef<null | HTMLElement>(null)
   const myWorkRef = useRef<null | HTMLElement>(null)
+  const blogsRef = useRef<null | HTMLElement>(null)
   const isHomeInView = useOnScreen(homePageRef)
   const isMyWorkInView = useOnScreen(myWorkRef)
-  console.log('in view: ', isHomeInView, isMyWorkInView)
+  const isBlogsInView = useOnScreen(blogsRef)
   const getActiveTab = (): string => {
     if (isHomeInView) {
       return 'home'
     } else if (isMyWorkInView) {
       return 'mywork'
+    } else if (isBlogsInView) {
+      return 'blogs'
     }
     return 'home'
   }
@@ -76,7 +70,6 @@ function App(): JSX.Element {
       <PageWrapper
         activePage={getActiveTab()}
         onSidebarClick={(selectedPage: string): void => {
-          console.log('active page: ', selectedPage, homePageRef, myWorkRef)
           if (selectedPage === 'home' && homePageRef) {
             homePageRef?.current?.scrollIntoView({
               behavior: 'smooth',
@@ -89,13 +82,32 @@ function App(): JSX.Element {
               block: 'start',
               inline: 'start',
             })
+          } else if (selectedPage === 'blogs' && blogsRef) {
+            blogsRef?.current?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+              inline: 'start',
+            })
           }
         }}
       >
         <>
           <Home ref={homePageRef} className={'home'} />
           <MyWork ref={myWorkRef} className={'mywork'} />
+          <Blogs ref={blogsRef} className={'blogs'} />
         </>
+        <FooterWrapper>
+          <StyledFooter>
+            <h1 style={{ marginBottom: '10px' }}>Would love to hear from you</h1>
+            <p>
+              {`Like what you see? Send me an email and tell me about it `}
+              <a href="mailto: vivekkrishnavk@gmail.com">{`moc.liamg@kvanhsirkkeviv`}</a>
+              {'.'}
+              <br />
+              {`I ♥︎ emails.`}
+            </p>
+          </StyledFooter>
+        </FooterWrapper>
       </PageWrapper>
     </ThemeProvider>
   )

@@ -19,34 +19,41 @@ export const PageWrapper = (props: any): JSX.Element => {
   const [openMobileNav, setOpenMobileNav] = useState(false)
   return (
     <Wrapper>
-      <div>
-        <MobileTopNav>
-          <MobileNavUL>
-            <div>
-              <MobileMenuBtn
-                style={{ cursor: 'pointer' }}
-                onClick={(): void => setOpenMobileNav(!openMobileNav)}
-                isActive={openMobileNav}
-              >
-                Menu
-              </MobileMenuBtn>
-              {openMobileNav && (
-                <MobileNavLinks>
-                  <SidebarNavLinks
-                    onSidebarClick={(selectedPage: string): void => {
-                      setOpenMobileNav(false)
-                      props.onSidebarClick(selectedPage)
-                    }}
-                    activePage={props.activePage}
-                  />
-                </MobileNavLinks>
-              )}
-            </div>
-            <MiddleNav>Vivek Krishna</MiddleNav>
-            <li style={{ cursor: 'pointer' }}>Email</li>
-          </MobileNavUL>
-        </MobileTopNav>
-      </div>
+      <MobileTopNav>
+        <MobileNavUL>
+          <div>
+            <MobileMenuBtn
+              style={{ cursor: 'pointer' }}
+              onClick={(): void => setOpenMobileNav(!openMobileNav)}
+              isActive={openMobileNav}
+            >
+              Menu
+            </MobileMenuBtn>
+            {openMobileNav && (
+              <MobileNavLinks>
+                <SidebarNavLinks
+                  onSidebarClick={(selectedPage: string): void => {
+                    setOpenMobileNav(false)
+                    props.onSidebarClick(selectedPage)
+                  }}
+                  activePage={props.activePage}
+                />
+              </MobileNavLinks>
+            )}
+          </div>
+          <MiddleNav
+            onClick={(): void => {
+              setOpenMobileNav(false)
+              props.onSidebarClick('home')
+            }}
+          >
+            Vivek Krishna
+          </MiddleNav>
+          <li style={{ cursor: 'pointer' }}>
+            <a href="mailto: vivekkrishnavk@gmail.com">Email</a>
+          </li>
+        </MobileNavUL>
+      </MobileTopNav>
       <Sidebar
         onSidebarClick={(selectedPage: string): void => props.onSidebarClick(selectedPage)}
         activePage={props.activePage}

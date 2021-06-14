@@ -56,6 +56,7 @@ export const MobileMenuBtn = styled.li<{ isActive: boolean }>`
 `
 
 export const MiddleNav = styled.li`
+  cursor: pointer;
   width: 80px;
   font-size: ${pxToRem(16)};
   font-weight: 500;
@@ -70,5 +71,6 @@ export const MobileNavLinks = styled.div`
     left: 0;
     top: 60px;
     position: absolute;
+    padding: 16px 0;
   }
 `

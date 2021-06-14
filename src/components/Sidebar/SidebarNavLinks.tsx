@@ -23,12 +23,12 @@ const sidebarOptions = [
     path: '/blogs',
     name: 'blogs',
   },
-  {
-    key: 4,
-    label: 'Services',
-    path: '/services',
-    name: 'services',
-  },
+  // {
+  //   key: 4,
+  //   label: 'Services',
+  //   path: '/services',
+  //   name: 'services',
+  // },
 ]
 
 export const SidebarNavLinks = (props: any): JSX.Element => {
