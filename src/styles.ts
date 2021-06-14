@@ -32,9 +32,13 @@ export const StyledFooter = styled.footer`
 `
 
 export const FooterWrapper = styled.div`
-  height: 30vh;
-  padding: 48px 0 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: none;
+  @media ${({ theme }): string => theme.device.tablet} {
+    display: block;
+    height: 30vh;
+    padding: 48px 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `

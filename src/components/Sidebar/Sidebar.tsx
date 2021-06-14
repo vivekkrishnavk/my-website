@@ -10,7 +10,7 @@ export const Sidebar = (props: any): JSX.Element => {
   return (
     <Wrapper>
       <StyledHeader>
-        <a>
+        <a href="/" onClick={(): void => props.onSidebarClick('home')}>
           <StyledH1>Vivek Krishna</StyledH1>
         </a>
         <Separator />
