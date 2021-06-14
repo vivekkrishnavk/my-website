@@ -55,6 +55,9 @@ export const ProductDescriptionDiv = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 48px;
+  @media ${({ theme }): string => theme.device.tablet} {
+    flex-direction: column-reverse;
+  }
 `
 
 export const StyledDiv = styled.div`
@@ -64,6 +67,9 @@ export const StyledDiv = styled.div`
 
 export const ProductImage = styled.div`
 width: 450px;
+  @media ${({ theme }): string => theme.device.tablet} {
+    width: 100%;
+  }
   & > div {
     display: block;
     position: relative;

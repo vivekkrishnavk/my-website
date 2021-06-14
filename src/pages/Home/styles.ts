@@ -7,7 +7,7 @@ export const HomePageSection = styled.section`
   height: 100vh;
   padding: ${pxToRem(168)} ${pxToRem(48)} ${pxToRem(48)} ${pxToRem(48)};
   @media ${({ theme }): string => theme.device.tablet} {
-    padding 0;
+    padding: ${pxToRem(168)} 0 0 0;
   }
 `
 

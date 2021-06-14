@@ -24,7 +24,7 @@ export const MobileTopNav = styled.div`
   @media ${({ theme }): string => theme.device.tablet} {
     display: flex;
     background: ${({ theme }): string => theme.navBackground};
-    z-index: 1;
+    z-index: 3;
     height: ${pxToRem(60)};
     position: sticky;
     top: 0;
@@ -47,6 +47,14 @@ export const MobileNavUL = styled.ul`
   }
 `
 
+export const MobileMenuBtn = styled.li<{ isActive: boolean }>`
+  @media ${({ theme }): string => theme.device.tablet} {
+    padding-bottom: 2px;
+    border-bottom: ${({ isActive, theme }): string =>
+      isActive ? `2px solid ${theme.paletteDefault}` : 'none'};
+  }
+`
+
 export const MiddleNav = styled.li`
   width: 80px;
   font-size: ${pxToRem(16)};
@@ -57,13 +65,10 @@ export const MiddleNav = styled.li`
 
 export const MobileNavLinks = styled.div`
   @media ${({ theme }): string => theme.device.tablet} {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background: ${({ theme }): string => theme.navBackground};
-    width: 100%;
-    height: 100vh;
-    z-index: 1;
+    z-index: 2;
+    left: 0;
+    top: 60px;
+    position: absolute;
   }
 `

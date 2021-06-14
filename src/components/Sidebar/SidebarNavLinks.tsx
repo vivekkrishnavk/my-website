@@ -32,6 +32,7 @@ const sidebarOptions = [
 ]
 
 export const SidebarNavLinks = (props: any): JSX.Element => {
+  console.log('active page: ', props.activePage)
   return (
     <StyledNav>
       <StyledUL>

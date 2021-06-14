@@ -44,7 +44,7 @@ export const StyledNav = styled.nav`
   flex: 0 0 50%;
   justify-content: center;
   @media ${({ theme }): string => theme.device.tablet} {
-    flex: 0 0 100%;
+    display: block;
   }
 `
 
@@ -58,8 +58,10 @@ export const StyledUL = styled.ul`
   & > li {
     height: ${pxToRem(48)};
     @media ${({ theme }): string => theme.device.tablet} {
+      display: block;
+      height: 3rem;
+      padding: 1rem;
       text-align: center;
-      height: ${pxToRem(96)};
     }
   }
 `

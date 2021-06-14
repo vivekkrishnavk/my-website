@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useRef, useEffect } from 'react'
 import styled, { ThemeProvider } from 'styled-components/macro'
@@ -17,6 +18,9 @@ const Toggler = styled.div`
   right: 0;
   margin: 20px;
   cursor: pointer;
+  @media ${({ theme }): string => theme.device.tablet} {
+    margin-top: 70px;
+  }
 `
 
 function useOnScreen(ref: any): boolean {
@@ -35,12 +39,12 @@ function useOnScreen(ref: any): boolean {
 }
 
 function App(): JSX.Element {
-  const [mode, setMode] = useState('dark')
+  const [mode, setMode] = useState('light')
   const homePageRef = useRef<null | HTMLElement>(null)
   const myWorkRef = useRef<null | HTMLElement>(null)
   const isHomeInView = useOnScreen(homePageRef)
   const isMyWorkInView = useOnScreen(myWorkRef)
-
+  console.log('in view: ', isHomeInView, isMyWorkInView)
   const getActiveTab = (): string => {
     if (isHomeInView) {
       return 'home'
@@ -72,7 +76,7 @@ function App(): JSX.Element {
       <PageWrapper
         activePage={getActiveTab()}
         onSidebarClick={(selectedPage: string): void => {
-          console.log('active page: ', selectedPage, homePageRef)
+          console.log('active page: ', selectedPage, homePageRef, myWorkRef)
           if (selectedPage === 'home' && homePageRef) {
             homePageRef?.current?.scrollIntoView({
               behavior: 'smooth',

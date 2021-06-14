@@ -45,7 +45,7 @@ export const MyWork = React.forwardRef((props: any, ref: any): JSX.Element => {
             that can process several transactions at once. I am also being tasked with adding new
             features to the existing applications.
           </Description>
-          <StyledLink>Learn More</StyledLink>
+          <StyledLink>Visit Site</StyledLink>
         </ProductDescription>
         <ProductImage>
           <div>
@@ -64,7 +64,7 @@ export const MyWork = React.forwardRef((props: any, ref: any): JSX.Element => {
             insurances. I built the entire flow for buying an insurance policy, right from entering
             your car number to interfacing with the insurance company to purchase the policy.
           </Description>
-          <StyledLink>Learn More</StyledLink>
+          <StyledLink>Visit Site</StyledLink>
         </ProductDescription>
         <ProductImage>
           <div>
@@ -83,7 +83,7 @@ export const MyWork = React.forwardRef((props: any, ref: any): JSX.Element => {
             some of the backend Java based microservices for this product. I developed multiple
             frontend apps for toll, parking payments for consumer and business users.
           </Description>
-          <StyledLink>Learn More</StyledLink>
+          <StyledLink>Visit Site</StyledLink>
         </ProductDescription>
         <ProductImage>
           <div>
